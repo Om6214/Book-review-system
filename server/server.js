@@ -2,10 +2,13 @@ require("dotenv").config()
 const express = require("express")
 const app = express()
 const Router = require("./routers/auth-router")
+const BookRouter=require("./routers/books-router")
 const PORT = process.env.PORT || 3000
 const connectDB = require("./utils/db")
 
 app.use(express.json())
+
+app.use("/book",BookRouter)
 app.use("/",Router);
 
 connectDB().then(
