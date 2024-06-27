@@ -38,16 +38,13 @@ const updateBook =async(req,res)=>{
     try {
         const id = req.params.id
         const data = req.body
-        const updateBook = await updateOne(
+        const updateBook = await Book.updateOne(
             {_id:id},
             {$set : data},
         )
-        if(updateBook.nModified===0){
-            return res.status(404).json({ message: "Book not found or no changes made" });
-        }
-        return res.status(201).json({message:"Update done"})
+        return res.status(201).json({message:"Update done",updateBook})
     } catch (error) {
-        return res.status(500)
+        console.log(error)
     }
 }
 
