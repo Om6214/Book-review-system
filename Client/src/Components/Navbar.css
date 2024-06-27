@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navcontainer{
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(41, 33, 33, 0.665);
+}
+h3{
+    color: white;
+    cursor: pointer;
+}
+ul{
+    display: flex;
+    width: 40%;
+    justify-content: space-around;
+}
+li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+.naav li::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.naav li:hover::after{
+    width: 95%;
+}
+.naav li {
+    display: inline-block;
+    position: relative;
+    padding: 5px 10px;
+}
