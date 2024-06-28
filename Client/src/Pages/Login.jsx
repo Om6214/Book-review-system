@@ -28,6 +28,10 @@ const Login = () => {
       const data = await response.json();
       if (response.ok) {
         alert(data.message);
+        setuser({
+          Email: "",
+          Password: "",
+        });
       } else {
         alert(data.message);
       }
