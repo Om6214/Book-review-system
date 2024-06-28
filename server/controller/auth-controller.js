@@ -43,5 +43,13 @@ const login = async(req,res)=>{
     console.log(error)
   }
 }
+const getusers = async(req,res)=>{
+  try {
+      const userdata = req.user
+      return res.status(200).json({userdata})
+  } catch (error) {
+      return res.status(500).json({message:"server error : unable to fetch user"})
+  }
+}
 
-module.exports = {registration,login};
+module.exports = {registration,login,getusers};

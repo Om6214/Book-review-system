@@ -2,6 +2,7 @@ require("dotenv").config()
 const express = require("express")
 const app = express()
 const cors = require("cors")
+const error_middleware = require("./middlewares/error_middleware")
 const Router = require("./routers/auth-router")
 const BookRouter=require("./routers/books-router")
 const PORT = process.env.PORT || 3000
@@ -18,6 +19,7 @@ app.use(express.json())
 app.use("/book",BookRouter)
 app.use("/",Router);
 
+app.use(error_middleware)
 connectDB().then(
     app.listen(PORT,()=>{
         console.log(`server is running at http://localhost:${PORT}`)

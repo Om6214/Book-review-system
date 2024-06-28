@@ -28,6 +28,7 @@ const Login = () => {
       const data = await response.json();
       if (response.ok) {
         alert(data.message);
+        console.log(data.token)
         setuser({
           Email: "",
           Password: "",
