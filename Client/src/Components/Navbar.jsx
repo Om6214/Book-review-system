@@ -16,12 +16,19 @@ const Navbar = () => {
           <NavLink to="/About">About</NavLink>
         </li>
         <li>
-          <NavLink to="/Login">Login</NavLink>
+          <NavLink to="/collection">collection</NavLink>
         </li>
         <li>
-          <NavLink to="/Register">Register</NavLink>
+          <NavLink to="/contact">Contact</NavLink>
+        </li>
+        <li>
+          <NavLink to="/review">Write a review</NavLink>
         </li>
       </ul>
+      <div className="btn">
+      <NavLink to="/Login">Sign in</NavLink>
+      <NavLink to="/Register">Sign up</NavLink>
+      </div>
     </div>
   );
 };

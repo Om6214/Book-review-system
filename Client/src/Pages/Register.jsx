@@ -1,6 +1,6 @@
 import { useState } from "react";
 import React from "react";
-import "../Pages/Register.css";
+import "./Register.css"
 
 const Register = () => {
   const [user, setuser] = useState({
@@ -41,8 +41,8 @@ const Register = () => {
     }
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="from">
+    <form autoComplete="off" onSubmit={handleSubmit}>
+      <div className="form">
         <label htmlFor="Name">Name : </label>
         <input
           type="text"

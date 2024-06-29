@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "../Pages/Login.css";
+import { useAuth } from "../storage/auth";
+import "./Login.css";
 
 const Login = () => {
   const [user, setuser] = useState({
@@ -14,6 +15,7 @@ const Login = () => {
       [name]: value,
     });
   };
+const {storeTokenInLS,token}= useAuth()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,8 +29,9 @@ const Login = () => {
       });
       const data = await response.json();
       if (response.ok) {
+        storeTokenInLS(data.token)
         alert(data.message);
-        console.log(data.token)
+        console.log(token)
         setuser({
           Email: "",
           Password: "",

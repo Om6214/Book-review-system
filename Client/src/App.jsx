@@ -6,6 +6,9 @@ import Login from '../src/Pages/Login'
 import Register from '../src/Pages/Register'
 import './App.css'
 import Navbar from './Components/Navbar'
+import Collection from './Pages/Collection'
+import Review from './Pages/Review'
+import Contact from './Pages/Contact'
 
 function App() {
 
@@ -15,6 +18,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/About' element={<About/>}/>
+        <Route path='/collection' element={<Collection/>}/>
+        <Route path='/review' element={<Review/>}/>
+        <Route path='/contact' element={<Contact/>}/>
         <Route path='/Login' element={<Login/>}/>
         <Route path='/Register' element={<Register/>}/>
       </Routes>

@@ -5,14 +5,14 @@
 }
 
 .navcontainer{
-    height: 45px;
+    height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(41, 33, 33, 0.665);
+    background-color: rgba(255, 255, 255, 0.665);
 }
 h3{
-    color: white;
+    color: rgb(0, 0, 0);
     cursor: pointer;
 }
 ul{
@@ -25,7 +25,7 @@ li{
 }
 a{
     text-decoration: none;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 .naav li::after {
     content: '';
@@ -45,4 +45,16 @@ a{
     display: inline-block;
     position: relative;
     padding: 5px 10px;
+}
+
+.btn a{
+    padding: 6px;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    color: black;
+}
+.btn a:hover{
+    background-color: rgb(190, 230, 230);
+    transition: all .5s ease;
 }
