@@ -9,6 +9,7 @@ import Navbar from './Components/Navbar'
 import Collection from './Pages/Collection'
 import Review from './Pages/Review'
 import Contact from './Pages/Contact'
+import Logout from './Pages/Logout'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
         <Route path='/review' element={<Review/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/Login' element={<Login/>}/>
+        <Route path='/logout' element={<Logout/>}/>
         <Route path='/Register' element={<Register/>}/>
       </Routes>
     </BrowserRouter>

@@ -1,0 +1,12 @@
+.form{
+    margin: auto;
+    display: flex;
+    width: 40%;
+    flex-direction: column;
+    justify-content: center;
+}
+button{
+    margin: auto;
+    margin-top: 5px;
+    width: 40%;
+}

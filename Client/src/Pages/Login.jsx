@@ -31,7 +31,6 @@ const {storeTokenInLS,token}= useAuth()
       if (response.ok) {
         storeTokenInLS(data.token)
         alert(data.message);
-        console.log(token)
         setuser({
           Email: "",
           Password: "",
