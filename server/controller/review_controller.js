@@ -12,8 +12,16 @@ const addReview=async(req,res)=>{
         console.log(error)
     }
 }
-const getReview=()=>{
-    
+const getReview=async(req,res)=>{
+    try {
+        const data = await Review.find()
+        if(!data){
+            return res.status(400).json({message:"unabel to fetch reviews"})
+        }
+        return res.status(200).json({data})
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 module.exports={addReview,getReview}
