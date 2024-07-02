@@ -1,7 +1,7 @@
 .form{
     margin: auto;
     display: flex;
-    width: 40%;
+    width: inherit;
     flex-direction: column;
     justify-content: center;
 }
@@ -9,4 +9,49 @@ button{
     margin: auto;
     margin-top: 5px;
     width: 40%;
+}
+form{
+    margin: auto;
+    width: 80vw;
+}
+form h1{
+    font-family: "Alegreya Sans SC", sans-serif;
+    font-weight: 100;
+    text-decoration: underline;
+}
+.Inpform input[type="text"], input[type="email"]{
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #6666a6;
+    line-height: 31px;
+    width: 100%;
+    margin: 0 0 32px;
+    background-color: #FCFCFC;
+    border-radius: 4px;
+  }
+  textarea:focus{
+    outline: none;
+  }
+  .form{
+    margin-top: 24px;
+  }
+  input:focus{
+    outline: none;
+  }
+.contimg{
+    display: flex;
+    justify-content: center;
+}
+.contSub{
+    background-color: black;
+    color: white;
+    border-radius: 7px;
+    width: 100px;
+    height: 40px;
+    border: 0px;
+}
+.contimg img{
+    width: 80vw;
+    height: 73vh;
 }

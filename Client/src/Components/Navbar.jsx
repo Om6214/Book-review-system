@@ -15,7 +15,15 @@ const Navbar = () => {
           <NavLink to="/About">About</NavLink>
         </li>
         <li>
-          <NavLink to="/collection">collection</NavLink>
+          <div className="dropdown">
+            <NavLink to="/Collection" className="dropbtn">Collection</NavLink>
+            <div className="dropdown-content">
+              <NavLink href="#">Manga</NavLink>
+              <NavLink href="#">Motivation</NavLink>
+              <NavLink href="#">Story</NavLink>
+              <NavLink href="#">Autobiography</NavLink>
+            </div>
+          </div>
         </li>
         <li>
           <NavLink to="/contact">Contact</NavLink>
@@ -25,8 +33,15 @@ const Navbar = () => {
         </li>
       </ul>
       <div className="search">
-        <input type="text" name="search" id="search" placeholder="Search for books" />
-        <a href="#"><img className="searchimg " src="search.png" alt="" /></a>
+        <input
+          type="text"
+          name="search"
+          id="search"
+          placeholder="Search for books"
+        />
+        <a href="#">
+          <img className="searchimg " src="search.png" alt="" />
+        </a>
       </div>
       <div className="btn">
         {isLoggedin ? (

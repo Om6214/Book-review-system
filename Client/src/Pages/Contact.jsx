@@ -39,7 +39,11 @@ const Contact = () => {
 
   return (
     <>
-      <form action="https://formspree.io/f/mgvweowk" method="POST">
+      <div className="contimg">
+        <img src="contimg.png" alt="contimg" />
+      </div>
+      <form className="Inpform" autoComplete="off" action="https://formspree.io/f/mgvweowk" method="POST">
+      <h1>Contact</h1>
         <div className="form">
           <label htmlFor="Name">Name:</label>
           <input
@@ -58,14 +62,16 @@ const Contact = () => {
             onChange={handleChange}
           />
           <label htmlFor="Message">Message:</label>
-          <input
+          <textarea
+          rows="10"
+          columns="40"
             type="text"
             name="Message"
             id="Message"
             value={user.Message}
             onChange={handleChange}
           />
-          <button type="submit">Submit</button>
+          <button className="contSub" type="submit">Submit</button>
         </div>
       </form>
     </>
