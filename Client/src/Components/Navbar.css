@@ -3,16 +3,51 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+.search{
+    position: relative;
+    display: inline-block;
+}
+.search input{
+    height: 32px;
+    width: 290px;
+    padding-right: 40px;
+    border-radius: 30px;
+}
+.search a { 
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+    border: none; 
+    background-color: transparent; 
+    cursor: pointer; 
+} 
+.searchimg {
+    margin-top: 7px;
+    margin-right: 10px;
+  }
+.search input:active{
+    border:2px solid rgb(255, 255, 255)
+}
+.search input[type=text]{
+    background-color: rgb(255, 255, 255);
+    font-size: 15px;
+    padding: 20px;
+}
+.searchimg{
+    height: 30px;
+    width: 30px;
+}
 .navcontainer{
-    height: 60px;
+    position: sticky;
+    top: 0px;
+    height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.665);
+    background-color: rgb(0, 0, 0);
 }
 h3{
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     cursor: pointer;
 }
 ul{
@@ -25,14 +60,14 @@ li{
 }
 a{
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 .naav li::after {
     content: '';
     display: block;
     width: 0;
     height: 2px;
-    background-color: black;
+    background-color: rgb(0, 132, 255);
     transition: width 0.3s;
     position: absolute;
     bottom: 0;
@@ -52,9 +87,10 @@ a{
     margin-left: 10px;
     margin-right: 10px;
     border-radius: 10px;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 .btn a:hover{
     background-color: rgb(190, 230, 230);
+    color: black;
     transition: all .5s ease;
 }

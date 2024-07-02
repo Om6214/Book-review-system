@@ -1,0 +1,14 @@
+.logo {
+  display: flex;
+  justify-content: center;
+}
+.logo img {
+  width: 20vw;
+  height: 20vh;
+}
+@media only screen and (max-width: 748px) {
+  .logo img {
+    width: 30vw;
+    height: 10vh;
+  }
+}

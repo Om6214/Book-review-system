@@ -7,14 +7,9 @@ const Navbar = () => {
   const { isLoggedin } = useAuth();
   return (
     <div className="navcontainer">
-      <div className="logos">
-        <h3>
-          <NavLink to="/">BookReview</NavLink>
-        </h3>
-      </div>
       <ul className="naav">
         <li>
-          <NavLink to="/">home</NavLink>
+          <NavLink to="/">Home</NavLink>
         </li>
         <li>
           <NavLink to="/About">About</NavLink>
@@ -29,6 +24,10 @@ const Navbar = () => {
           <NavLink to="/review">Write a review</NavLink>
         </li>
       </ul>
+      <div className="search">
+        <input type="text" name="search" id="search" placeholder="Search for books" />
+        <a href="#"><img className="searchimg " src="search.png" alt="" /></a>
+      </div>
       <div className="btn">
         {isLoggedin ? (
           <>
