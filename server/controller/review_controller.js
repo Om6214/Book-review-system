@@ -24,4 +24,18 @@ const getReview=async(req,res)=>{
     }
 }
 
-module.exports={addReview,getReview}
+const updateReview = async(req,res)=>{
+    try {
+        const id = req.params.id
+        const data = req.body
+        const update = await Review.updateOne(
+            {_id:id},
+            {$set:data}
+        )
+        return res.status(201).json({update})
+    } catch (error) {
+        return res.status(404).json({message:"Internal server error"})
+    }
+}
+
+module.exports={addReview,getReview,updateReview}
