@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../Pages/Contact.css";
 import { useAuth } from "../storage/auth";
+import Footer from "../Components/Footer"
 
 const Contact = () => {
   const {detail}=useAuth()
@@ -74,6 +75,7 @@ const Contact = () => {
           <button className="contSub" type="submit">Submit</button>
         </div>
       </form>
+      <Footer/>
     </>
   );
 };

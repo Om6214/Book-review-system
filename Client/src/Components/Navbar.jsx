@@ -1,61 +1,120 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "../Components/Navbar.css";
 import { useAuth } from "../storage/auth";
 
 const Navbar = () => {
   const { isLoggedin } = useAuth();
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  useEffect(() => {
+    const handleCollapse = () => setIsExpanded(false);
+    const handleExpand = () => setIsExpanded(true);
+
+    const navbar = document.getElementById('navbarNavDropdown');
+    navbar.addEventListener('hide.bs.collapse', handleCollapse);
+    navbar.addEventListener('show.bs.collapse', handleExpand);
+
+    return () => {
+      navbar.removeEventListener('hide.bs.collapse', handleCollapse);
+      navbar.removeEventListener('show.bs.collapse', handleExpand);
+    };
+  }, []);
+
   return (
-    <div className="navcontainer">
-      <ul className="naav">
-        <li>
-          <NavLink to="/">Home</NavLink>
-        </li>
-        <li>
-          <NavLink to="/About">About</NavLink>
-        </li>
-        <li>
-          <div className="dropdown">
-            <NavLink to="/Collection" className="dropbtn">Collection</NavLink>
-            <div className="dropdown-content">
-              <NavLink href="#">Manga</NavLink>
-              <NavLink href="#">Motivation</NavLink>
-              <NavLink href="#">Story</NavLink>
-              <NavLink href="#">Autobiography</NavLink>
-            </div>
-          </div>
-        </li>
-        <li>
-          <NavLink to="/contact">Contact</NavLink>
-        </li>
-        <li>
-          <NavLink to="/review">Write a review</NavLink>
-        </li>
-      </ul>
-      <div className="search">
-        <input
-          type="text"
-          name="search"
-          id="search"
-          placeholder="Search for books"
-        />
-        <a href="#">
-          <img className="searchimg " src="search.png" alt="" />
+    <nav style={{ backgroundColor: "#666466" }} className="navbar navbar-expand-lg sticky-top">
+      <div className="container-fluid">
+        <a className="navbar-brand" to="#">
+          Navbar
         </a>
+        <button
+          className={`navbar-toggler ${isExpanded ? 'collapsed' : ''}`}
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded={isExpanded}
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <NavLink style={{color:"white"}} className="nav-link active" aria-current="page" to="/">
+                Home
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/about">
+                About
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/contact">
+                Contact
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/review">
+                Review
+              </NavLink>
+            </li>
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Collection
+              </a>
+              <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a className="dropdown-item" to="#">
+                    Action
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" to="#">
+                    Another action
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" to="#">
+                    Something else here
+                  </a>
+                </li>
+              </ul>
+            </li>
+            {isLoggedin ? (
+              <>
+                <li className="nav-item">
+                  <NavLink id="logoutbtn" className="nav-link btnNav" to="/logout">
+                    Logout
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              <div className="btnNav d-flex">
+                <li className="nav-item">
+                  <NavLink style={{marginRight:"5px"}} className="nav-link" to="/login">
+                    Login
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to="/register">
+                    Register
+                  </NavLink>
+                </li>
+              </div>
+            )}
+          </ul>
+        </div>
       </div>
-      <div className="btn">
-        {isLoggedin ? (
-          <>
-            <NavLink to="/logout">Logout</NavLink>
-          </>
-        ) : (
-          <>
-            <NavLink to="/Login">Sign in</NavLink>
-            <NavLink to="/Register">Sign up</NavLink>
-          </>
-        )}
-      </div>
-    </div>
+    </nav>
   );
 };
 
