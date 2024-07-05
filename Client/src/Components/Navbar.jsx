@@ -4,7 +4,7 @@ import "../Components/Navbar.css";
 import { useAuth } from "../storage/auth";
 
 const Navbar = () => {
-  const { isLoggedin } = useAuth();
+  const { isLoggedin,setCategory } = useAuth();
   const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
@@ -20,6 +20,10 @@ const Navbar = () => {
       navbar.removeEventListener('show.bs.collapse', handleExpand);
     };
   }, []);
+
+  const handleCategoryClicked = (category) => {
+    setCategory(category)
+  }
 
   return (
     <nav style={{ backgroundColor: "#666466" }} className="navbar navbar-expand-lg sticky-top">
@@ -73,19 +77,22 @@ const Navbar = () => {
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a className="dropdown-item" to="#">
-                    Action
-                  </a>
+                  <NavLink className="dropdown-item" to="/collection" onClick={()=>{handleCategoryClicked('Manga')}}>
+                    Manga
+                  </NavLink>
                 </li>
                 <li>
-                  <a className="dropdown-item" to="#">
-                    Another action
-                  </a>
+                  <NavLink className="dropdown-item" to="/collection" onClick={()=>{handleCategoryClicked('horror')}}>
+                    Horror
+                  </NavLink>
                 </li>
                 <li>
-                  <a className="dropdown-item" to="#">
-                    Something else here
-                  </a>
+                  <NavLink className="dropdown-item" to="/collection" onClick={()=>{handleCategoryClicked('mystry')}}>
+                    Mystry
+                  </NavLink>
+                  <NavLink className="dropdown-item" to="/collection" onClick={()=>{handleCategoryClicked('fiction')}}>
+                    Fiction
+                  </NavLink>
                 </li>
               </ul>
             </li>

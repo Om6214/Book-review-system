@@ -19,7 +19,7 @@ form h1{
     font-weight: 100;
     text-decoration: underline;
 }
-.Inpform input[type="text"], input[type="email"]{
+.Inpform input[type="text"], input[type="email"],input[type="password"]{
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding: 10px;

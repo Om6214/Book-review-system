@@ -1,33 +1,73 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import React, { useState } from "react";
+import {
+  Card,
+  CardMedia,
+  CardContent,
+  Typography,
+  CardActions,
+  Button,
+  useMediaQuery,
+} from "@mui/material";
+import { useAuth } from "../storage/auth";
 
-const ImgMediaCard=()=> {
+const ResponsiveCard = () => {
+  const [variant, setVariant] = useState("h5");
+
+  const { book } = useAuth();
+  const isMobile = useMediaQuery("(max-width:600px)");
+
   return (
-    <Card style={{backgroundColor:"#333",color:"white"}} sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        alt="green iguana"
-        height="140"
-        image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpeLimybAQ6nC8n15rx120yCLYWqzYNU1TvL5ysp1sl5CAX9rP1lGlnQKecErefEGHK2w&usqp=CAU"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Book Name
-        </Typography>
-        <Typography variant="body2" color="white">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut aliquid praesentium qui illum, architecto libero quod consequatur quisquam magni doloremque eum quo nam!
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">View Reviews</Button>
-      </CardActions>
-    </Card>
+    <>
+      {book.map((curEle, index) => {
+        const { Img, Title, Author, Description } = curEle;
+        return (
+          <Card
+            key={index}
+            style={{
+              backgroundColor: "#333",
+              color: "white",
+              maxWidth: isMobile ? 180 : 345,
+              height: isMobile ? 270 : "auto",
+            }}
+          >
+            <CardMedia
+              component="img"
+              alt="green iguana"
+              height={isMobile ? "100" : "190"}
+              image={Img}
+            />
+            <CardContent>
+              <Typography
+                gutterBottom
+                variant={isMobile ? "body2" : variant}
+                component="div"
+              >
+                {Title}
+              </Typography>
+              <Typography
+                variant="body2"
+                style={{ fontSize: isMobile ? "10px" : "16px" }}
+                color="white"
+              >
+                {Description}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button
+                style={{
+                  width: isMobile ? null : "133px",
+                  fontSize: isMobile ? "8px" : "16px",
+                }}
+                size="small"
+              >
+                View Reviews
+              </Button>
+            </CardActions>
+          </Card>
+        );
+      })}
+    </>
   );
-}
+};
 
-export default ImgMediaCard
+export default ResponsiveCard;

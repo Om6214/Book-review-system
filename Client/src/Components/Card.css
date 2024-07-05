@@ -1,16 +1,26 @@
 .card {
-    height: 30vh;
+    height: 35vh;
     width: 45vw;
     background-color: black; /* Initial background color */
     transition: background-color 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
 .card-img {
-    height: 100%;
+    height: 200px;
     width: 100%;
 }
 
 .card:hover {
     opacity: 0.5;
     background-color: black; /* Background color on hover */
+}
+@media (maxwidth:748px){
+    .card{
+        height: 20vh;
+        width: 12vw;
+    }
+    .card-img {
+        height: 100%;
+        width: 100%;
+    }
 }

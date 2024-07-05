@@ -15,7 +15,7 @@ const authmiddleware = async(req,res,next)=>{
         req.Id=userData._id
         next();
     } catch (error) {
-        console.log(error)
+        return res.status(404).json({message:"Token not provided"})
     }
 }
 module.exports=authmiddleware

@@ -44,3 +44,12 @@
   #logoutbtn{
     padding: 10px;
   }
+
+  .dropdown-item.active{
+    background-color: white;
+    color: black;
+  }
+
+  .dropdown-item.active:hover{
+    background-color: rgb(19, 112, 170);
+  }

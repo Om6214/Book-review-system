@@ -1,2 +1,13 @@
-
+.carddiv {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px; /* Adjust the gap as needed */
+    padding: 16px; /* Adjust padding as needed */
+  }
+  
+  @media (max-width: 600px) {
+    .carddiv {
+      grid-template-columns: repeat(2,1fr);
+    }
+  }
   
