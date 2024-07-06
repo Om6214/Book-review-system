@@ -16,17 +16,18 @@ const ResponsiveCard = () => {
   const Navigate = useNavigate()
   const [variant, setVariant] = useState("h5");
 
-  const { book } = useAuth();
+  const { book,setbookId } = useAuth();
   const isMobile = useMediaQuery("(max-width:600px)");
 
-  const handletransfer= (Img, Title, Author, Description,Pages,Link,Genre)=>{
+  const handletransfer= (Img, Title, Author, Description,Pages,Link,Genre,_id)=>{
     Navigate('/extra', { state: {Img, Title, Author, Description,Pages,Link,Genre} });
+    setbookId(_id)
   } 
 
   return (
     <>
       {book.map((curEle, index) => {
-        const { Img, Title, Author, Description,Pages,Link,Genre } = curEle;
+        const { Img, Title, Author, Description,Pages,Link,Genre,_id } = curEle;
         return (
           <Card
             key={index}
@@ -54,7 +55,7 @@ const ResponsiveCard = () => {
             </CardContent>
             <CardActions>
               <Button
-                onClick={()=>{handletransfer(Img, Title, Author, Description,Pages,Link,Genre)}}
+                onClick={()=>{handletransfer(Img, Title, Author, Description,Pages,Link,Genre,_id)}}
                 style={{
                   margin:"auto",
                   width: isMobile ? null : "133px",

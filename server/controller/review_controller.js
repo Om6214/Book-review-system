@@ -23,6 +23,18 @@ const getReview=async(req,res)=>{
         console.log(error)
     }
 }
+const getReviewById=async(req,res)=>{
+    try {
+        const id = req.params.id
+        const data = await Review.find({BookId:id})
+        if(!data){
+            return res.status(400).json({message:"There is no review about this book"})
+        }
+        return res.status(200).json({data})
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 const updateReview = async(req,res)=>{
     try {
@@ -38,4 +50,4 @@ const updateReview = async(req,res)=>{
     }
 }
 
-module.exports={addReview,getReview,updateReview}
+module.exports={addReview,getReview,updateReview,getReviewById}

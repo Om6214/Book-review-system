@@ -14,12 +14,13 @@ import { useNavigate } from "react-router-dom";
 
 const Collection = () => {
   const Navigate = useNavigate()
-  const { Category } = useAuth();
+  const { Category,setbookId } = useAuth();
   const [genreBook, setGenreBook] = useState([]);
   const isMobile = useMediaQuery("(max-width:600px)");
   const variant = isMobile ? "h6" : "h5"; 
-  const handleTransfer=(Img, Title, Author, Description,Pages,Link,Genre )=>{
+  const handleTransfer=(Img, Title, Author, Description,Pages,Link,Genre,_id )=>{
     Navigate('/extra', { state: {Img, Title, Author, Description,Pages,Link,Genre } });
+    setbookId(_id)
   }
 
 
@@ -54,7 +55,7 @@ const Collection = () => {
     <div className="container">
       <div className="GenreCard">
         {genreBook.map((curEle, index) => {
-          const { Img, Title, Author, Description,Pages,Link,Genre } = curEle;
+          const { Img, Title, Author, Description,Pages,Link,Genre,_id } = curEle;
           return (
             <Card
               key={index}
@@ -83,7 +84,7 @@ const Collection = () => {
               </CardContent>
               <CardActions>
                 <Button
-                onClick={()=>{handleTransfer(Img, Title, Author, Description,Pages,Link,Genre )}}
+                onClick={()=>{handleTransfer(Img, Title, Author, Description,Pages,Link,Genre,_id )}}
                   style={{
                     width: isMobile ? null : "133px",
                     fontSize: isMobile ? "8px" : "16px",

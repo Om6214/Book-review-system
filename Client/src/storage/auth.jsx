@@ -52,6 +52,24 @@ export const AuthProvider = ({ children }) => {
     }
   };
   const [Category, setCategory] = useState("");
+  const [bookId, setbookId] = useState("")
+  const [review, setReview] = useState([])
+
+  useEffect(()=>{
+    getRevById()
+  },[bookId])
+
+  const getRevById=async()=>{
+    try {
+      const response = await fetch(`http://localhost:3000/Review/getReview/${bookId}`,{
+        method:"GET"
+      })
+      const res = await response.json()
+      setReview(res.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   
   return (
@@ -65,6 +83,9 @@ export const AuthProvider = ({ children }) => {
         book,
         Category,
         setCategory,
+        bookId,
+        setbookId,
+        review
       }}
     >
       {children}
