@@ -2,10 +2,12 @@ const Book = require("../model/books_model");
 
 const addbooks = async (req, res) => {
   try {
-    const { Img, Title, Author, Genre, Description } = req.body;
+    const { Img, Title, Author,Pages,Link, Genre, Description } = req.body;
     const bookData = await Book.create({
       Img,
       Title,
+      Pages,
+      Link,
       Author,
       Genre,
       Description,

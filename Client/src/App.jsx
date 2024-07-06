@@ -9,6 +9,7 @@ import Collection from "./Pages/Collection";
 import Review from "./Pages/Review";
 import Contact from "./Pages/Contact";
 import Logout from "./Pages/Logout";
+import Inside from "./Pages/Inside";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
+        <Route path="/extra" element={<Inside />} />
         <Route path="/Register" element={<Register />} />
       </Routes>
     </BrowserRouter>

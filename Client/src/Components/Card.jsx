@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {useNavigate} from 'react-router-dom'
 import {
   Card,
   CardMedia,
@@ -10,16 +11,22 @@ import {
 } from "@mui/material";
 import { useAuth } from "../storage/auth";
 
+
 const ResponsiveCard = () => {
+  const Navigate = useNavigate()
   const [variant, setVariant] = useState("h5");
 
   const { book } = useAuth();
   const isMobile = useMediaQuery("(max-width:600px)");
 
+  const handletransfer= (Img, Title, Author, Description,Pages,Link,Genre)=>{
+    Navigate('/extra', { state: {Img, Title, Author, Description,Pages,Link,Genre} });
+  } 
+
   return (
     <>
       {book.map((curEle, index) => {
-        const { Img, Title, Author, Description } = curEle;
+        const { Img, Title, Author, Description,Pages,Link,Genre } = curEle;
         return (
           <Card
             key={index}
@@ -44,23 +51,18 @@ const ResponsiveCard = () => {
               >
                 {Title}
               </Typography>
-              <Typography
-                variant="body2"
-                style={{ fontSize: isMobile ? "10px" : "16px" }}
-                color="white"
-              >
-                {Description}
-              </Typography>
             </CardContent>
             <CardActions>
               <Button
+                onClick={()=>{handletransfer(Img, Title, Author, Description,Pages,Link,Genre)}}
                 style={{
+                  margin:"auto",
                   width: isMobile ? null : "133px",
                   fontSize: isMobile ? "8px" : "16px",
                 }}
                 size="small"
               >
-                View Reviews
+                View More
               </Button>
             </CardActions>
           </Card>

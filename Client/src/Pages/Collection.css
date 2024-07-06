@@ -1,0 +1,6 @@
+.GenreCard {
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    gap: 16px;
+  padding: 16px;
+  }

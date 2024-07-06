@@ -9,6 +9,14 @@ const bookSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    Pages:{
+        type:Number,
+        require:true
+    },
+    Link:{
+        type:String,
+        require:false
+    },
     Author:{
         type:String,
         required:true

@@ -1,0 +1,64 @@
+.container {
+  border: 1px solid rgb(75, 71, 71);
+  box-shadow: 2px 2px 2px rgb(238, 236, 236);
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.img-fluid {
+  margin-top: 30px;
+  width: 100%;
+  max-width: 60%;
+  max-height: 448px;
+}
+
+#Title {
+  margin-top: 20px;
+  font-family: "Alegreya Sans SC", Museo Sans;
+  font-size: 38px;
+  font-weight: 300;
+}
+
+.book {
+  font-size: 17px;
+}
+.bookinfo {
+  text-align: start;
+  width: 100%;
+}
+.bookinfo span {
+  font-weight: 800;
+}
+#About {
+  font-size: 38px;
+  margin-top: 10px;
+  font-weight: 200;
+  width: 100%;
+  text-align: start;
+}
+@media (max-width: 500px) {
+  #Title {
+    font-size: 17px;
+  }
+  .book {
+    font-size: 11px;
+  }
+  #About {
+    font-size: 17px;
+  }
+}
+
+.lists li {
+  font-family: "Source Code Pro", monospace;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  margin-top: 20px;
+}
+.lists{
+  list-style-type: none;
+}
