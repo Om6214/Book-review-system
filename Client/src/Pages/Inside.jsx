@@ -3,11 +3,13 @@ import { useLocation } from "react-router-dom";
 import Rating from "@mui/material/Rating";
 import "./Inside.css";
 import { useAuth } from "../storage/auth";
+import { useMediaQuery } from "@mui/material";
 
 const Inside = () => {
   const [users, setUsers] = useState({});
   const location = useLocation();
-  const { review, detail } = useAuth();
+  const isMobile = useMediaQuery("(max-width:600px)");
+  const { review, detail,isLoggedin } = useAuth();
   const userId = detail && detail.length > 0 ? detail[0]._id : null;
   const { Img, Title, Author, Description, Pages, Link, Genre, _id } =
     location.state;
@@ -15,8 +17,9 @@ const Inside = () => {
     BookId: _id,
     UserId: userId,
     Comment: "",
-    Rate: "",
+    Rate: 0,
   });
+  const avgRating= review.reduce((acc,review)=>acc+review.Rate,0)/review.length;
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -54,25 +57,36 @@ const Inside = () => {
     }));
   };
 
+  const handleRatingChange = (event, newValue) => {
+    setRating((prevRating) => ({
+      ...prevRating,
+      Rate: newValue,
+    }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch("http://localhost:3000/Review/addReview", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(rating),
-      });
-      const data = await response.json();
-      if (response.ok) {
-        console.log(data);
-        alert("Review submitted successfully!");
-      } else {
-        alert("Failed to submit review.");
+    if(isLoggedin){
+      try {
+        const response = await fetch("http://localhost:3000/Review/addReview", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(rating),
+        });
+        const data = await response.json();
+        if (response.ok) {
+          alert("Review submitted successfully!");
+        } else {
+          alert("Failed to submit review.");
+        }
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
+    }
+    else{
+      alert("please login to add review")
     }
   };
 
@@ -104,7 +118,7 @@ const Inside = () => {
             <Rating
               style={{ position: "absolute" }}
               name="half-rating-read"
-              defaultValue={2.5}
+              value={avgRating}
               precision={0.5}
               readOnly
             />
@@ -134,7 +148,7 @@ const Inside = () => {
                 </div>
                 <div className="date">
                   <Rating
-                    style={{ position: "absolute" }}
+                    style={{ position: "absolute"}}
                     name="half-rating-read"
                     value={Rate}
                     precision={0.5}
@@ -167,13 +181,12 @@ const Inside = () => {
           <div>
             <label htmlFor="Rate">Rating</label>
             <Rating
-            style={{width:"22%"}}
               name="Rate"
               value={rating.Rate}
-              onChange={handleChange}
+              onChange={handleRatingChange}
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className={isMobile?"btn btn-primary btn-sm":"btn btn-primary"}>
             Submit
           </button>
         </form>

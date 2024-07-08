@@ -25,6 +25,7 @@
 
 .book {
   font-size: 17px;
+  text-align: start;
 }
 .bookinfo {
   text-align: start;
@@ -40,28 +41,78 @@
   width: 100%;
   text-align: start;
 }
-@media (max-width: 500px) {
+
+@media (max-width: 900px) {
+  .img-fluid {
+    max-width: 80%;
+  }
+
+  .bookinfo {
+    text-align: start;
+  }
+
   #Title {
-    font-size: 17px;
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  #Title {
+    font-size: 24px;
   }
   .book {
-    font-size: 11px;
+    font-size: 14px;
   }
   #About {
-    font-size: 17px;
+    font-size: 24px;
   }
-  .lists li{
-    font-size: 11px;
+  .lists li {
+    font-size: 14px;
   }
-  .container{
-    max-width: 90%;
+  .container {
+    max-width: 95%;
   }
   .profile img {
     max-width: 30px;
     max-height: 30px;
   }
-  .mainRev p{
-    font-size: 11px;
+  .mainRev p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  #Title {
+    font-size: 18px;
+  }
+  .book {
+    font-size: 12px;
+    display: flex;
+  }
+  #About {
+    font-size: 18px;
+  }
+  .lists li {
+    font-size: 12px;
+  }
+  .profile img {
+    max-width: 25px;
+    max-height: 25px;
+  }
+  .mainRev p {
+    font-size: 12px;
+  }
+  .revform div {
+    flex-direction: column;
+  }
+  .revform div label {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5px;
+  }
+  .revform div input,
+  .revform div .MuiRating-root {
+    width: 100%;
   }
 }
 
@@ -72,14 +123,14 @@
   font-style: normal;
   margin-top: 20px;
 }
-.lists{
+.lists {
   list-style-type: none;
 }
 
-.date{
+.date {
   display: flex;
 }
-.date p{
+.date p {
   position: relative;
   left: 148px;
   bottom: 3px;
@@ -94,7 +145,6 @@
   position: relative;
   width: 100%;
 }
-
 
 .profile {
   display: flex;
@@ -135,12 +185,12 @@
 
 .revform div {
   display: flex;
-}
-label {
-  display: inline-block;
-  display: flex;
   align-items: center;
-  width: 10%;
+}
+div label {
+  display: inline-block;
+  align-items: center;
+  width: 18%;
 }
 
 .mainRev {
