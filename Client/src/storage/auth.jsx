@@ -66,6 +66,7 @@ export const AuthProvider = ({ children }) => {
       })
       const res = await response.json()
       setReview(res.data)
+      console.log(res.data)
     } catch (error) {
       console.log(error)
     }

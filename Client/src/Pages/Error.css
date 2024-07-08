@@ -1,0 +1,32 @@
+#full{
+    color: rgb(0, 0, 0);
+}
+#error{
+    text-align: center;
+    font-size: 11rem;
+    background: -webkit-linear-gradient(rgb(153, 104, 167),rgb(210, 243, 0),rgb(224, 104, 120),rgb(151, 32, 32));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+h3{
+    text-align: center;
+}
+p{
+    text-align: center;
+}
+a{
+    color: rgb(0, 0, 0);
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+.bn{
+    margin: 20px;
+    padding: 8px;
+    border-radius: 10px;
+}
+.bn:hover{
+    background-color: aquamarine;
+    color: black;
+}

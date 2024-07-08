@@ -10,6 +10,7 @@ import Review from "./Pages/Review";
 import Contact from "./Pages/Contact";
 import Logout from "./Pages/Logout";
 import Inside from "./Pages/Inside";
+import Error from "./Pages/Error"
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/logout" element={<Logout />} />
         <Route path="/extra" element={<Inside />} />
         <Route path="/Register" element={<Register />} />
+        <Route path="*" element={<Error/>} />
       </Routes>
     </BrowserRouter>
   );

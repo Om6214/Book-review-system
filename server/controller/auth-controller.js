@@ -20,6 +20,18 @@ const registration = async (req, res) => {
     return res.status(404).json({message:"Internal server error"})
   }
 };
+const getuserById=async(req,res)=>{
+  try {
+    const id = req.params.id
+    const data = await User.find({_id:id}).select({Password:0})
+    if(!data){
+      return res.status(404).json({message:"User Not found"})
+    }
+    return res.status(200).json({data})
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 const login = async(req,res)=>{
   try {
@@ -52,4 +64,4 @@ const getusers = async(req,res)=>{
   }
 }
 
-module.exports = {registration,login,getusers};
+module.exports = {registration,login,getusers,getuserById};

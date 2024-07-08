@@ -20,14 +20,14 @@ const ResponsiveCard = () => {
   const isMobile = useMediaQuery("(max-width:600px)");
 
   const handletransfer= (Img, Title, Author, Description,Pages,Link,Genre,_id)=>{
-    Navigate('/extra', { state: {Img, Title, Author, Description,Pages,Link,Genre} });
+    Navigate('/extra', { state: {Img, Title, Author, Description,Pages,Link,Genre,_id} });
     setbookId(_id)
   } 
 
   return (
     <>
       {book.map((curEle, index) => {
-        const { Img, Title, Author, Description,Pages,Link,Genre,_id } = curEle;
+        const { Img, Title, Author, Description,Pages,Link,Genre,_id} = curEle;
         return (
           <Card
             key={index}

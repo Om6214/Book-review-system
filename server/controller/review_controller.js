@@ -2,8 +2,8 @@ const Review = require("../model/review");
 
 const addReview=async(req,res)=>{
     try {
-        const {BookId,UserId,Rating,Comment} = req.body;
-        const data = await Review.create({BookId,UserId,Rating,Comment})
+        const {BookId,UserId,Rate,Comment} = req.body;
+        const data = await Review.create({BookId,UserId,Rate,Comment})
         if(!data){
             return res.status(404).json({message:"unable to submit review"})
         }

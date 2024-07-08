@@ -19,7 +19,7 @@ const Collection = () => {
   const isMobile = useMediaQuery("(max-width:600px)");
   const variant = isMobile ? "h6" : "h5"; 
   const handleTransfer=(Img, Title, Author, Description,Pages,Link,Genre,_id )=>{
-    Navigate('/extra', { state: {Img, Title, Author, Description,Pages,Link,Genre } });
+    Navigate('/extra', { state: {Img, Title, Author, Description,Pages,Link,Genre,_id } });
     setbookId(_id)
   }
 
@@ -86,6 +86,7 @@ const Collection = () => {
                 <Button
                 onClick={()=>{handleTransfer(Img, Title, Author, Description,Pages,Link,Genre,_id )}}
                   style={{
+                    margin:"auto",
                     width: isMobile ? null : "133px",
                     fontSize: isMobile ? "8px" : "16px",
                   }}

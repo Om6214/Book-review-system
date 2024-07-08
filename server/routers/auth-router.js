@@ -14,5 +14,6 @@ Router.route("/user/login").post(
   authcontroller.login
 );
 Router.route("/getusers").get(authmiddleware, authcontroller.getusers);
+Router.route("/getusers/:id").get(authcontroller.getuserById);
 
 module.exports = Router;

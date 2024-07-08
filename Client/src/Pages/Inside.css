@@ -50,6 +50,19 @@
   #About {
     font-size: 17px;
   }
+  .lists li{
+    font-size: 11px;
+  }
+  .container{
+    max-width: 90%;
+  }
+  .profile img {
+    max-width: 30px;
+    max-height: 30px;
+  }
+  .mainRev p{
+    font-size: 11px;
+  }
 }
 
 .lists li {
@@ -61,4 +74,81 @@
 }
 .lists{
   list-style-type: none;
+}
+
+.date{
+  display: flex;
+}
+.date p{
+  position: relative;
+  left: 148px;
+  bottom: 3px;
+}
+
+.review {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  position: relative;
+  width: 100%;
+}
+
+
+.profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.profile span {
+  font-weight: bold;
+  color: #555;
+}
+
+.rating {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.date p {
+  font-size: 0.875rem;
+  color: #888;
+  margin: 5px 0;
+}
+.revform {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.revform div {
+  display: flex;
+}
+label {
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  width: 10%;
+}
+
+.mainRev {
+  font-family: "Source Code Pro", monospace;
+  font-weight: 300;
+  font-optical-sizing: auto;
+  font-size: normal;
+  line-height: 1.5;
+  margin-top: 10px;
+  text-align: justify;
 }
