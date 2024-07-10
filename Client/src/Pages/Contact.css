@@ -1,57 +1,177 @@
-.form{
-    margin: auto;
-    display: flex;
-    width: inherit;
-    flex-direction: column;
-    justify-content: center;
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
 }
-button{
-    margin: auto;
-    margin-top: 5px;
-    width: 100px;
+
+/* Header */
+header {
+  background: #333;
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
 }
-form{
-    margin: auto;
-    width: 80vw;
+
+header h1 {
+  margin: 0;
 }
-form h1{
-    font-family: "Alegreya Sans SC", sans-serif;
-    font-weight: 100;
-    text-decoration: underline;
+
+/* Main Content */
+main {
+  padding: 1rem;
+  max-width: 800px;
+  margin: 20px auto;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.Inpform input[type="text"], input[type="email"],input[type="password"]{
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 10px;
-    border: 1px solid #6666a6;
-    line-height: 31px;
-    width: 100%;
-    margin: 0 0 32px;
-    background-color: #FCFCFC;
-    border-radius: 4px;
+
+#tutorial,
+#contact {
+  margin-bottom: 2rem;
+}
+
+#tutorial h2,
+#contact h2 {
+  color: #333;
+  border-bottom: 2px solid #333;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Contact Form */
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: inherit;
+  justify-content: center;
+}
+
+#contact-form label {
+  margin-bottom: 0.5rem;
+}
+
+#contact-form input,
+#contact-form textarea {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #6666a6;
+  border-radius: 4px;
+  font-size: 1rem;
+  width: 100%;
+  background-color: #FCFCFC;
+}
+
+#contact-form button {
+  padding: 0.7rem;
+  border: none;
+  background: #333;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin: auto;
+  margin-top: 5px;
+  width: 100px;
+}
+
+#contact-form button:hover {
+  background: #555;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background: #333;
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Form Headings */
+form h1 {
+  font-family: "Alegreya Sans SC", sans-serif;
+  font-weight: 100;
+  text-decoration: underline;
+}
+
+/* Form Focus Styles */
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+/* Form Layout */
+.form {
+  margin: auto;
+  display: flex;
+  width: inherit;
+  flex-direction: column;
+  justify-content: center;
+}
+
+form {
+  margin: auto;
+}
+
+@media (max-width: 758px) {
+  .contimg img {
+    height: 32vh;
   }
-  textarea:focus{
-    outline: none;
-  }
-  .form{
-    margin-top: 24px;
-  }
-  input:focus{
-    outline: none;
-  }
-.contimg{
-    display: flex;
-    justify-content: center;
 }
-.contSub{
-    background-color: black;
-    color: white;
-    border-radius: 7px;
-    width: 100px;
-    height: 40px;
-    border: 0px;
+
+/* Input Styles */
+.Inpform input[type="text"],
+input[type="email"],
+input[type="password"] {
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #6666a6;
+  line-height: 31px;
+  width: 100%;
+  margin: 0 0 32px;
+  background-color: #FCFCFC;
+  border-radius: 4px;
 }
-.contimg img{
-    width: 80vw;
-    height: 73vh;
+
+textarea:focus {
+  outline: none;
+}
+
+.form {
+  margin-top: 24px;
+}
+
+input:focus {
+  outline: none;
+}
+
+/* Contact Image */
+.contimg {
+  display: flex;
+  justify-content: center;
+}
+
+.contimg img {
+  width: 80vw;
+}
+
+/* Submit Button */
+.btn {
+  width: 85px;
+  margin: auto;
+  background-color: #8e8a8a;
+  border: 0px;
+}
+
+.btn:hover{
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 253, 253);
 }

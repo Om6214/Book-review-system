@@ -1,6 +1,6 @@
 .container {
-  border: 1px solid rgb(75, 71, 71);
-  box-shadow: 2px 2px 2px rgb(238, 236, 236);
+  border: 1px solid rgb(220, 216, 216);
+  box-shadow: 2px 2px 2px rgb(220, 216, 216);
   margin-top: 60px;
   display: flex;
   justify-content: center;
@@ -106,7 +106,7 @@
     flex-direction: column;
   }
   .revform div label {
-    width: 100%;
+    width: 40%;
     text-align: left;
     margin-bottom: 5px;
   }
@@ -177,6 +177,7 @@
   margin: 5px 0;
 }
 .revform {
+  width: 80%;
   margin-top: 10px;
   display: flex;
   flex-direction: column;
@@ -186,6 +187,7 @@
 .revform div {
   display: flex;
   align-items: center;
+  flex-direction: row;
 }
 div label {
   display: inline-block;

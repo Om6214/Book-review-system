@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useAuth } from "../storage/auth";
 import "./Login.css";
-
+import {useNavigate } from "react-router-dom";
 const Login = () => {
+  const navigate = useNavigate()
   const [user, setuser] = useState({
     Email: "",
     Password: "",
@@ -30,6 +31,7 @@ const {storeTokenInLS,token}= useAuth()
       const data = await response.json();
       if (response.ok) {
         storeTokenInLS(data.token)
+        navigate("/")
         alert(data.message);
         setuser({
           Email: "",
@@ -45,7 +47,7 @@ const {storeTokenInLS,token}= useAuth()
 
   return (
     <form autoComplete="off" onSubmit={handleSubmit}>
-      <div className="form">
+      <div className="form" style={{width:"80vw"}}>
         <label htmlFor="Email">Email : </label>
         <input
           type="email"

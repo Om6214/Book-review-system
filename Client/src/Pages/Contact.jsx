@@ -43,6 +43,7 @@ const Contact = () => {
       <div className="contimg">
         <img src="contimg.png" alt="contimg" />
       </div>
+      <div className="container">
       <form className="Inpform" autoComplete="off" action="https://formspree.io/f/mgvweowk" method="POST">
       <h1>Contact</h1>
         <div className="form">
@@ -72,10 +73,13 @@ const Contact = () => {
             value={user.Message}
             onChange={handleChange}
           />
-          <button className="contSub" type="submit">Submit</button>
+          <button className="btn btn-danger" type="submit">Submit</button>
         </div>
       </form>
-      <Footer/>
+      </div>
+      <footer>
+        <p>&copy; 2024 Book Review Website. All rights reserved.</p>
+      </footer>
     </>
   );
 };

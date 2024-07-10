@@ -4,8 +4,9 @@ import "../Components/Navbar.css";
 import { useAuth } from "../storage/auth";
 
 const Navbar = () => {
-  const { isLoggedin,setCategory } = useAuth();
+  const { isLoggedin, setCategory } = useAuth();
   const [isExpanded, setIsExpanded] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const handleCollapse = () => setIsExpanded(false);
@@ -22,15 +23,18 @@ const Navbar = () => {
   }, []);
 
   const handleCategoryClicked = (category) => {
-    setCategory(category)
-  }
+    setCategory(category);
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    console.log("Search query:", searchQuery);
+    // Add search functionality here
+  };
 
   return (
     <nav style={{ backgroundColor: "#666466" }} className="navbar navbar-expand-lg sticky-top">
       <div className="container-fluid">
-        <a className="navbar-brand" to="#">
-          Navbar
-        </a>
         <button
           className={`navbar-toggler ${isExpanded ? 'collapsed' : ''}`}
           type="button"
@@ -43,9 +47,9 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul className="navbar-nav">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <NavLink style={{color:"white"}} className="nav-link active" aria-current="page" to="/">
+              <NavLink style={{ color: "white" }} className="nav-link active" aria-current="page" to="/">
                 Home
               </NavLink>
             </li>
@@ -61,7 +65,7 @@ const Navbar = () => {
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/review">
-                Review
+                Book Reviews
               </NavLink>
             </li>
             <li className="nav-item dropdown">
@@ -77,37 +81,48 @@ const Navbar = () => {
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <NavLink className="dropdown-item" to="/collection" onClick={()=>{handleCategoryClicked('Manga')}}>
+                  <NavLink className="dropdown-item" to="/collection" onClick={() => { handleCategoryClicked('Manga'); }}>
                     Manga
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="dropdown-item" to="/collection" onClick={()=>{handleCategoryClicked('horror')}}>
+                  <NavLink className="dropdown-item" to="/collection" onClick={() => { handleCategoryClicked('Horror'); }}>
                     Horror
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink className="dropdown-item" to="/collection" onClick={()=>{handleCategoryClicked('mystry')}}>
-                    Mystry
+                  <NavLink className="dropdown-item" to="/collection" onClick={() => { handleCategoryClicked('Mystery'); }}>
+                    Mystery
                   </NavLink>
-                  <NavLink className="dropdown-item" to="/collection" onClick={()=>{handleCategoryClicked('fiction')}}>
-                    Fiction
+                  <NavLink className="dropdown-item" to="/collection" onClick={() => { handleCategoryClicked('Autobiography'); }}>
+                    Autobiography
                   </NavLink>
                 </li>
               </ul>
             </li>
+          </ul>
+          <form className="d-flex" onSubmit={handleSearch}>
+            <input
+              className="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <button className="btn btn-outline-light" type="submit">Search</button>
+          </form>
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             {isLoggedin ? (
-              <>
-                <li className="nav-item">
-                  <NavLink id="logoutbtn" className="nav-link btnNav" to="/logout">
-                    Logout
-                  </NavLink>
-                </li>
-              </>
+              <li className="nav-item">
+                <NavLink id="logoutbtn" className="nav-link btnNav" to="/logout">
+                  Logout
+                </NavLink>
+              </li>
             ) : (
               <div className="btnNav d-flex">
                 <li className="nav-item">
-                  <NavLink style={{marginRight:"5px"}} className="nav-link" to="/login">
+                  <NavLink style={{ marginRight: "5px" }} className="nav-link" to="/login">
                     Login
                   </NavLink>
                 </li>

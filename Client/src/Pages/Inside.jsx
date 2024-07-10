@@ -169,8 +169,10 @@ const Inside = () => {
         <form className="revform" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="Comment">Review : </label>
-            <input
+            <textarea
               style={{ width: "96%" }}
+              rows="10"
+              column="20"
               type="text"
               name="Comment"
               id="Comment"

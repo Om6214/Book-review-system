@@ -42,9 +42,10 @@ const Register = () => {
   };
   return (
     <form autoComplete="off" onSubmit={handleSubmit}>
-      <div className="form">
+      <div className="form" style={{width:"80vw"}}>
         <label htmlFor="Name">Name : </label>
         <input
+        style={{padding:"10px",border:"1px solid #696997",borderRadius:"4px"}}
           type="text"
           name="Name"
           id="Name"

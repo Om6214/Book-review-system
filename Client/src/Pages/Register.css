@@ -1,11 +1,20 @@
-.form{
-    margin: auto;
-    display: flex;
-    width: 40%;
-    flex-direction: column;
-    justify-content: center;
+.form {
+  margin: auto;
+  display: flex;
+  width: 40%;
+  flex-direction: column;
+  justify-content: center;
 }
-button{
-    margin-top: 5px;
-    width: 40%;
+button {
+  margin: auto;
+  width: 14%;
+  background-color: gray;
+  border: none;
+  height: 39px;
+  border-radius: 10px;
+}
+
+button:hover{
+    background-color: black;
+    color: white;
 }
