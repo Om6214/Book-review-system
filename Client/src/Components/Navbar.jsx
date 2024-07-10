@@ -2,11 +2,20 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "../Components/Navbar.css";
 import { useAuth } from "../storage/auth";
+import Fuse from "fuse.js";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const { isLoggedin, setCategory } = useAuth();
+  const navigate = useNavigate();
+  const { isLoggedin, setCategory, book,setSearchResults } = useAuth();
   const [isExpanded, setIsExpanded] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  
+
+  // Initialize Fuse.js
+  const fuse = new Fuse(book, {
+    keys: ["Title", "Genre", "Author"]
+  });
 
   useEffect(() => {
     const handleCollapse = () => setIsExpanded(false);
@@ -27,9 +36,15 @@ const Navbar = () => {
   };
 
   const handleSearch = (e) => {
+    navigate("/result")
     e.preventDefault();
-    console.log("Search query:", searchQuery);
-    // Add search functionality here
+    
+    if (searchQuery.trim() !== "") {
+      const results = fuse.search(searchQuery);
+      setSearchResults(results.map(result => result.item));
+    } else {
+      setSearchResults([]);
+    }
   };
 
   return (

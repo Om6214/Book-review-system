@@ -11,6 +11,7 @@ import Contact from "./Pages/Contact";
 import Logout from "./Pages/Logout";
 import Inside from "./Pages/Inside";
 import Error from "./Pages/Error"
+import Result from "./Components/Result"
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/logout" element={<Logout />} />
         <Route path="/extra" element={<Inside />} />
         <Route path="/Register" element={<Register />} />
+        <Route path="/Result" element={<Result />} />
         <Route path="*" element={<Error/>} />
       </Routes>
     </BrowserRouter>

@@ -55,6 +55,7 @@ export const AuthProvider = ({ children }) => {
   const [bookId, setbookId] = useState("")
   const [review, setReview] = useState([])
 
+  const [searchResults, setSearchResults] = useState([]);
   useEffect(()=>{
     getRevById()
   },[bookId])
@@ -85,6 +86,8 @@ export const AuthProvider = ({ children }) => {
         setCategory,
         bookId,
         setbookId,
+        setSearchResults,
+        searchResults,
         review
       }}
     >
