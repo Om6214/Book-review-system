@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Result.css";
+import { NavLink } from "react-router-dom";
 import {
   Card,
   CardMedia,
@@ -16,7 +17,7 @@ const ResponsiveCard = () => {
   const Navigate = useNavigate();
   const [variant, setVariant] = useState("h5");
 
-  const { searchResults, setbookId } = useAuth();
+  const { searchResults, setbookId,isLoggedin } = useAuth();
   const isMobile = useMediaQuery("(max-width:600px)");
 
   const handletransfer = (
@@ -39,6 +40,7 @@ const ResponsiveCard = () => {
     <>
     <Typography style={{marginTop:"40px"}} variant="h4" align="center" gutterBottom>
         {searchResults && searchResults.length > 0 ? "The results are..." : "No results found"}
+        <NavLink className="booklink" to={isLoggedin?"/addbook":"/login"}>want to add book?</NavLink>
       </Typography>
       <div className="res-cont">
         {searchResults.map((curEle, index) => {

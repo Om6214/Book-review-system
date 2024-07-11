@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useAuth } from "../storage/auth";
 import "./Login.css";
 import {useNavigate } from "react-router-dom";
+import BaseUrl from "../BaseUrl";
 const Login = () => {
   const navigate = useNavigate()
   const [user, setuser] = useState({
@@ -21,7 +22,7 @@ const {storeTokenInLS,token}= useAuth()
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:3000/user/login", {
+      const response = await fetch(`${BaseUrl}/user/login`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",

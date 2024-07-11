@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import BaseUrl from '../BaseUrl'
 
 const Authcontext = createContext();
 
@@ -12,7 +13,7 @@ export const AuthProvider = ({ children }) => {
   const [detail, setdetail] = useState("");
   const userAuthentication = async () => {
     try {
-      const response = await fetch("http://localhost:3000/getusers", {
+      const response = await fetch(`${BaseUrl}/getusers`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -40,7 +41,7 @@ export const AuthProvider = ({ children }) => {
 
   const getbooks = async () => {
     try {
-      const response = await fetch("http://localhost:3000/book/getbook", {
+      const response = await fetch(`${BaseUrl}/book/getbook`, {
         method: "GET",
       });
       if (response.ok) {
@@ -62,7 +63,7 @@ export const AuthProvider = ({ children }) => {
 
   const getRevById=async()=>{
     try {
-      const response = await fetch(`http://localhost:3000/Review/getReview/${bookId}`,{
+      const response = await fetch(`${BaseUrl}/Review/getReview/${bookId}`,{
         method:"GET"
       })
       const res = await response.json()

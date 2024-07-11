@@ -1,6 +1,7 @@
 import { useState } from "react";
 import React from "react";
 import "./Register.css"
+import BaseUrl from "../BaseUrl";
 
 const Register = () => {
   const [user, setuser] = useState({
@@ -18,7 +19,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:3000/user/registration", {
+      const response = await fetch(`${BaseUrl}/user/registration`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

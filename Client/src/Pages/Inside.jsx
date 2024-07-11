@@ -4,6 +4,7 @@ import Rating from "@mui/material/Rating";
 import "./Inside.css";
 import { useAuth } from "../storage/auth";
 import { useMediaQuery } from "@mui/material";
+import BaseUrl from "../BaseUrl";
 
 const Inside = () => {
   const [users, setUsers] = useState({});
@@ -30,7 +31,7 @@ const Inside = () => {
         uniqueUserIds.map(async (id) => {
           try {
             const response = await fetch(
-              `http://localhost:3000/getusers/${id}`,
+              `${BaseUrl}/getusers/${id}`,
               {
                 method: "GET",
               }
@@ -68,7 +69,7 @@ const Inside = () => {
     e.preventDefault();
     if(isLoggedin){
       try {
-        const response = await fetch("http://localhost:3000/Review/addReview", {
+        const response = await fetch(`${BaseUrl}/Review/addReview`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

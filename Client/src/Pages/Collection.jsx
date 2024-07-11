@@ -27,7 +27,7 @@ const Collection = () => {
   const getBooksByGenre = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/book/getbook/${Category}`,
+        `${BaseUrl}/book/getbook/${Category}`,
         {
           method: "GET",
         }

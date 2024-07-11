@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./About.css";
 import { useAuth } from "../storage/auth";
+import  BaseUrl  from "../BaseUrl";
 
 const About = () => {
   const { detail, isLoggedin } = useAuth();
@@ -13,12 +14,12 @@ const About = () => {
   useEffect(() => {
     const fetchReplies = async () => {
       try {
-        const response = await fetch("http://localhost:3000/getComment",{
-          method:"GET"
+        const response = await fetch(`${BaseUrl}/getComment`, {
+          method: "GET",
         });
         if (response.ok) {
-          const res = await response.json()
-          setPublicReplies(res.data)
+          const res = await response.json();
+          setPublicReplies(res.data);
         } else {
           console.error(data.message);
         }
@@ -41,7 +42,7 @@ const About = () => {
     e.preventDefault();
     try {
       if (isLoggedin) {
-        const response = await fetch("http://localhost:3000/addComment", {
+        const response = await fetch(`${BaseUrl}/addComment`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -108,11 +109,19 @@ const About = () => {
           <h2>Public Replies</h2>
           {publicReplies.length > 0 ? (
             <ul>
-              {publicReplies.map((reply, index) => (
-                <li key={index} className="reply-item">
-                  <strong>{reply.Username}</strong>: {reply.Message}
-                </li>
-              ))}
+              {publicReplies.map((reply, index) => {
+                return (
+                  <div className="review" key={index}>
+                    <div className="profile">
+                      <img src="user.jpeg" alt="" />
+                      {reply.Username}
+                    </div>
+                    <div className="mainRev">
+                      <p>{reply.Message}</p>
+                    </div>
+                  </div>
+                );
+              })}
             </ul>
           ) : (
             <p>No replies yet.</p>
