@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const { book } = useAuth();
+  const navigate = useNavigate();
   const newbook = book.slice(0,6)
   const handleTransfer = (
     Img,
