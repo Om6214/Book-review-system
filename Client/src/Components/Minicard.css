@@ -1,0 +1,62 @@
+.minicardcontainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+}
+
+.minicard {
+    display: flex;
+    height: 80px;
+    width: 30%;
+    margin-bottom: 10px; /* Add some space between rows */
+}
+
+.minicardimg {
+    height: 100%;
+    width: 90px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 10px;
+}
+
+#headingpara {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.infor {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.minicardbutton {
+    width: 44%;
+    height: 25px;
+    border: none;
+}
+
+/* Media query for tablets */
+@media (max-width: 768px) {
+    .minicard {
+        width: 45%; /* Two cards per row on tablets */
+    }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 480px) {
+    .minicard {
+        width: 100%; /* One card per row on mobile devices */
+    }
+
+    .minicardcontainer {
+        width: 100%; /* Full width container on mobile */
+    }
+}

@@ -2,6 +2,7 @@ import { useState } from "react";
 import React from "react";
 import "./Register.css"
 import BaseUrl from "../BaseUrl";
+import {toast} from "react-toastify"
 
 const Register = () => {
   const [user, setuser] = useState({
@@ -28,7 +29,10 @@ const Register = () => {
       });
       const data = await response.json();
       if (response.ok) {
-        alert(data.message);
+        toast.success("Login successfull",{
+          theme:"dark",
+          autoClose:2000
+        })
         setuser({
           Name: "",
           Email: "",
@@ -69,7 +73,7 @@ const Register = () => {
           value={user.Password}
           onChange={handleChange}
         />
-        <button type="submit">Submit</button>
+        <button className="regisbutton" type="submit">Submit</button>
       </div>
     </form>
   );

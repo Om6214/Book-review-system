@@ -1,39 +1,31 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import './Footer.css';
 
-const Footer = () => {
+function Footer() {
   return (
-    <footer className="py-3 my-4">
-      <ul className="nav justify-content-center border-bottom pb-3 mb-3" style={{margin:"auto"}}>
-        <li className="nav-item">
-          <NavLink to="/" className="nav-link px-2 text-body-secondary">
-            Home
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink href="#" className="nav-link px-2 text-body-secondary">
-            Features
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink href="#" className="nav-link px-2 text-body-secondary">
-            Pricing
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink href="#" className="nav-link px-2 text-body-secondary">
-            FAQs
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink href="#" className="nav-link px-2 text-body-secondary">
-            About
-          </NavLink>
-        </li>
-      </ul>
-      <p className="text-center text-body-secondary">© 2024 Company, Inc</p>
+    <footer className="homefooter">
+      <div className='left'>
+        <h1 className="brand">Subscribe for updates</h1>
+        <div className="footerform">
+        <label htmlFor="Name">Name</label>
+        <input type="text" name='Name' />
+        <label htmlFor="Email">Email</label>
+        <input type="email" name='email' />
+        
+      </div>
+      <button className='footerbutton'>submit</button>
+      </div>
+      
+
+      {/* Right section with links */}
+      <div className="homelinks">
+        <a href="#">About Us</a>
+        <a href="#">License</a>
+        <a href="#">Contribute</a>
+        <a href="#">Contact Us</a>
+      </div>
     </footer>
   );
-};
+}
 
 export default Footer;

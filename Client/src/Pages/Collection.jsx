@@ -11,6 +11,7 @@ import {
 import { useAuth } from "../storage/auth";
 import "./Collection.css";
 import { useNavigate } from "react-router-dom";
+import BaseUrl from "../BaseUrl";
 
 const Collection = () => {
   const Navigate = useNavigate()

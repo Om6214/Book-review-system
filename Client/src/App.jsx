@@ -16,44 +16,6 @@ import AddBook from "./Pages/AddBook";
 import { useEffect } from "react";
 
 function App() {
-  useEffect(() => {
-    const handleContextMenu = (event) => {
-      event.preventDefault();
-    };
-
-    const handleKeyDown = (event) => {
-      // Disable common shortcuts
-      if (event.ctrlKey || event.metaKey) {
-        switch (event.key) {
-          case 'u': // Ctrl+U or Cmd+U
-          case 's': // Ctrl+S or Cmd+S
-          case 'p': // Ctrl+P or Cmd+P
-            event.preventDefault();
-            break;
-          case 'Shift':
-            if (event.key === 'i') {
-              event.preventDefault();
-            }
-            break;
-          default:
-            break;
-        }
-      }
-
-      // Disable F12 key
-      if (event.keyCode === 123) {
-        event.preventDefault();
-      }
-    };
-
-    document.addEventListener('contextmenu', handleContextMenu);
-    document.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      document.removeEventListener('contextmenu', handleContextMenu);
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, []);
   return (
     <BrowserRouter>
       <div className="logo">

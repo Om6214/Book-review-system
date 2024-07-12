@@ -19,9 +19,12 @@ header {
 header h1 {
   margin: 0;
 }
+.contform{
+  height: 540px;
+}
 
 /* Main Content */
-main {
+.main-content {
   padding: 1rem;
   max-width: 800px;
   margin: 20px auto;
@@ -29,44 +32,35 @@ main {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-#tutorial,
-#contact {
-  margin-bottom: 2rem;
-}
-
-#tutorial h2,
-#contact h2 {
-  color: #333;
-  border-bottom: 2px solid #333;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
+.main-content h1 {
+  font-family: "Alegreya Sans SC", sans-serif;
+  font-weight: 100;
+  text-decoration: underline;
 }
 
 /* Contact Form */
-#contact-form {
+.Inpform {
   display: flex;
   flex-direction: column;
   margin: auto;
-  width: inherit;
-  justify-content: center;
 }
 
-#contact-form label {
+.Inpform label {
   margin-bottom: 0.5rem;
 }
 
-#contact-form input,
-#contact-form textarea {
-  margin-bottom: 1rem;
+.Inpform input,
+.Inpform textarea {
   padding: 0.5rem;
   border: 1px solid #6666a6;
   border-radius: 4px;
   font-size: 1rem;
+  margin-bottom: 1rem;
+  background-color: #fcfcfc;
   width: 100%;
-  background-color: #FCFCFC;
 }
 
-#contact-form button {
+.Inpform button {
   padding: 0.7rem;
   border: none;
   background: #333;
@@ -75,12 +69,11 @@ main {
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s ease;
-  margin: auto;
-  margin-top: 5px;
   width: 100px;
+  align-self: center;
 }
 
-#contact-form button:hover {
+.Inpform button:hover {
   background: #555;
 }
 
@@ -95,64 +88,6 @@ footer {
   width: 100%;
 }
 
-/* Form Headings */
-form h1 {
-  font-family: "Alegreya Sans SC", sans-serif;
-  font-weight: 100;
-  text-decoration: underline;
-}
-
-/* Form Focus Styles */
-textarea:focus,
-input:focus {
-  outline: none;
-}
-
-/* Form Layout */
-.form {
-  margin: auto;
-  display: flex;
-  width: inherit;
-  flex-direction: column;
-  justify-content: center;
-}
-
-form {
-  margin: auto;
-}
-
-@media (max-width: 758px) {
-  .contimg img {
-    height: 32vh;
-  }
-}
-
-/* Input Styles */
-.Inpform input[type="text"],
-input[type="email"],
-input[type="password"] {
-  box-sizing: border-box;
-  padding: 10px;
-  border: 1px solid #6666a6;
-  line-height: 31px;
-  width: 100%;
-  margin: 0 0 32px;
-  background-color: #FCFCFC;
-  border-radius: 4px;
-}
-
-textarea:focus {
-  outline: none;
-}
-
-.form {
-  margin-top: 24px;
-}
-
-input:focus {
-  outline: none;
-}
-
 /* Contact Image */
 .contimg {
   display: flex;
@@ -163,15 +98,15 @@ input:focus {
   width: 80vw;
 }
 
-/* Submit Button */
-.btn {
-  width: 85px;
-  margin: auto;
-  background-color: #8e8a8a;
-  border: 0px;
-}
+/* Media Queries */
+@media (max-width: 768px) {
+  .contimg img {
+    height: auto;
+    max-width: 100%;
+  }
 
-.btn:hover{
-  background-color: rgb(0, 0, 0);
-  color: rgb(255, 253, 253);
+  .Inpform input,
+  .Inpform textarea {
+    margin: 0;
+  }
 }

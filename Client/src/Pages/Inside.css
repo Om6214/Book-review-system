@@ -35,11 +35,12 @@
   font-weight: 800;
 }
 #About {
-  font-size: 38px;
-  margin-top: 10px;
-  font-weight: 200;
-  width: 100%;
-  text-align: start;
+  color: #000000;
+  font-family: "Alegreya Sans SC", Museo Sans;
+  font-size: 35px;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-decoration: underline;
 }
 
 @media (max-width: 900px) {

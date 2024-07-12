@@ -3,6 +3,8 @@ import { useAuth } from "../storage/auth";
 import "./Login.css";
 import {useNavigate } from "react-router-dom";
 import BaseUrl from "../BaseUrl";
+import {toast} from "react-toastify"
+
 const Login = () => {
   const navigate = useNavigate()
   const [user, setuser] = useState({
@@ -33,7 +35,10 @@ const {storeTokenInLS,token}= useAuth()
       if (response.ok) {
         storeTokenInLS(data.token)
         navigate("/")
-        alert(data.message);
+        toast.success("Login successfull",{
+          theme:"dark",
+          autoClose:2000
+        })
         setuser({
           Email: "",
           Password: "",
@@ -65,7 +70,7 @@ const {storeTokenInLS,token}= useAuth()
           value={user.Password}
           onChange={handleChange}
         />
-        <button type="submit">Submit</button>
+        <button className="loginbutton" type="submit">Submit</button>
       </div>
     </form>
   );

@@ -8,7 +8,7 @@ const Hero = () => {
   return (
     <div className="hero-section">
       <div className="hero-content">
-        <h1>Welcome to Book Reviews</h1>
+        <h1>Welcome to <span id='bookrev'>Book Reviews</span></h1>
         <p>Discover and review your favorite books</p>
         <NavLink to={isLoggedin?"/review":"/login"} className="herobtn">Get Started</NavLink>
       </div>

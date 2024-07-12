@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: center;
 }
-button{
+.loginbutton{
     margin: auto;
     width: 14%;
     background-color: gray;

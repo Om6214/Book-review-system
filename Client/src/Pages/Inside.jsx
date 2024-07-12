@@ -22,6 +22,25 @@ const Inside = () => {
   });
   const avgRating= review.reduce((acc,review)=>acc+review.Rate,0)/review.length;
 
+  useEffect(()=>{
+    const updateAvgRating = async()=>{
+      try {
+        const response = await fetch(`${BaseUrl}/book/updateBook/${_id}`,{
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            Avgrating: avgRating,
+          }),
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    updateAvgRating();
+  }, [_id, avgRating]);
+  
   useEffect(() => {
     const fetchUsers = async () => {
       const uniqueUserIds = [...new Set(review.map((r) => r.UserId))];
@@ -115,6 +134,9 @@ const Inside = () => {
             <span>Genre</span>: {Genre}
           </p>
           <p className="book">
+            <span>Shop</span>: <a style={{marginBottom:"10px"}} target="blank" href={Link}><i class="fa-brands fa-amazon fa-xl"></i></a>
+          </p>
+          <p className="book">
             <span>Rating</span>:{" "}
             <Rating
               style={{ position: "absolute" }}
@@ -138,7 +160,7 @@ const Inside = () => {
         <div className="container">
           <span id="About">Reviews</span>
           {review.map((curEle, index) => {
-            const { BookId, Comment, CreatedAt, Rate, UserId } = curEle;
+            const { BookId,Link, Comment, CreatedAt, Rate, UserId } = curEle;
             const userName = users[UserId]?.[0]?.Name || "Loading...";
 
             return (

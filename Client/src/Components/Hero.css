@@ -31,6 +31,13 @@
     background-color: black;
     color: white;
   }
+  #bookrev {
+    background: linear-gradient(rgb(255, 0, 0), rgb(251, 255, 0),rgb(0, 255, 0));
+    font-family:'Times New Roman', Times, serif;
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
   .hero-content {
     position: relative;
@@ -80,5 +87,40 @@
       font-size: 0.9rem;
       padding: 6px 12px;
     }
+  }
+  .home-container {
+    width: 90%;
+    margin: auto;
+    background-color: #f2f2f2; /* Light background color */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  }
+  
+  .cm-page-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333; /* Dark text color */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #58949c; /* Teal color border bottom */
+  }
+  
+  .cm-page-title span {
+    background-color: #58949c; /* Teal background color for span */
+    color: #fff; /* White text color */
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+  
+  .taxonomy-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555; /* Darker gray text color */
+  }
+  
+  .taxonomy-description p {
+    margin-bottom: 10px;
   }
   

@@ -46,7 +46,7 @@ const Contact = () => {
       <div className="container">
       <form className="Inpform" autoComplete="off" action="https://formspree.io/f/mgvweowk" method="POST">
       <h1>Contact</h1>
-        <div className="form">
+        <div className="contform">
           <label htmlFor="Name">Name:</label>
           <input
             type="text"
@@ -65,8 +65,8 @@ const Contact = () => {
           />
           <label htmlFor="Message">Message:</label>
           <textarea
-          rows="10"
-          columns="40"
+          rows="5"
+          cols="50"
             type="text"
             name="Message"
             id="Message"
