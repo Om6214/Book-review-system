@@ -25,6 +25,11 @@ const bookSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    Avgrating:{
+        type:Number,
+        required:false,
+        default:0
+    },
     Description:{
         type:String,
         required:true
