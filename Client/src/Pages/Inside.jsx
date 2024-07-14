@@ -4,7 +4,9 @@ import Rating from "@mui/material/Rating";
 import "./Inside.css";
 import { useAuth } from "../storage/auth";
 import { useMediaQuery } from "@mui/material";
+import swal from 'sweetalert';
 import BaseUrl from "../BaseUrl";
+
 
 const Inside = () => {
   const [users, setUsers] = useState({});
@@ -97,9 +99,9 @@ const Inside = () => {
         });
         const data = await response.json();
         if (response.ok) {
-          alert("Review submitted successfully!");
+          swal("Woo hoo!","Your review has been added successfully","succes")
         } else {
-          alert("Failed to submit review.");
+          swal("Oops!","Something went wrong","error")
         }
       } catch (error) {
         console.log(error);
