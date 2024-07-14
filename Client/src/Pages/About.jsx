@@ -4,7 +4,7 @@ import { useAuth } from "../storage/auth";
 import  BaseUrl  from "../BaseUrl";
 
 const About = () => {
-  const { detail, isLoggedin } = useAuth();
+  const { detail, isLoggedin,setLoading } = useAuth();
   const [reply, setReply] = useState({
     Username: detail && detail.length > 0 ? detail[0].Name : null,
     Message: "",
@@ -42,6 +42,7 @@ const About = () => {
     e.preventDefault();
     try {
       if (isLoggedin) {
+        setLoading(true)
         const response = await fetch(`${BaseUrl}/addComment`, {
           method: "POST",
           headers: {
@@ -63,6 +64,8 @@ const About = () => {
       }
     } catch (error) {
       console.log(error);
+    } finally{
+      setLoading(false)
     }
   };
 

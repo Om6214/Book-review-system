@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const { isLoggedin, setCategory, book, setSearchResults } = useAuth();
+  const { isLoggedin, setCategory, book, setSearchResults,setLoading } = useAuth();
   const [isExpanded, setIsExpanded] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -35,11 +35,13 @@ const Navbar = () => {
   };
 
   const handleSearch = (e) => {
+    setLoading(true)
     navigate("/result");
     e.preventDefault();
 
     if (searchQuery.trim() !== "") {
       const results = fuse.search(searchQuery);
+      setLoading(false)
       setSearchResults(results.map((result) => result.item));
     } else {
       setSearchResults([]);

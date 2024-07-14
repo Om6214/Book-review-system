@@ -15,7 +15,7 @@ import BaseUrl from "../BaseUrl";
 
 const Collection = () => {
   const Navigate = useNavigate()
-  const { Category,setbookId } = useAuth();
+  const { Category,setbookId,setLoading } = useAuth();
   const [genreBook, setGenreBook] = useState([]);
   const isMobile = useMediaQuery("(max-width:600px)");
   const variant = isMobile ? "h6" : "h5"; 
@@ -26,6 +26,7 @@ const Collection = () => {
 
 
   const getBooksByGenre = async () => {
+    setLoading(true)
     try {
       const response = await fetch(
         `${BaseUrl}/book/getbook/${Category}`,
@@ -41,6 +42,8 @@ const Collection = () => {
       }
     } catch (error) {
       console.error("Fetch error:", error);
+    } finally{
+      setLoading(false)
     }
   };
 
