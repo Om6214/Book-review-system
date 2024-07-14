@@ -48,7 +48,11 @@ header h1 {
 .Inpform label {
   margin-bottom: 0.5rem;
 }
-
+.contform label{
+  display: inline-block;
+  width: 100%;
+  text-align: start;
+}
 .Inpform input,
 .Inpform textarea {
   padding: 0.5rem;

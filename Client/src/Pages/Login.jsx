@@ -53,12 +53,13 @@ const {storeTokenInLS,token}= useAuth()
 
   return (
     <form autoComplete="off" onSubmit={handleSubmit}>
-      <div className="form" style={{width:"80vw"}}>
+      <h1 id="About">Login</h1>
+      <div className="loginform" style={{width:"80vw"}}>
         <label htmlFor="Email">Email : </label>
         <input
           type="email"
           name="Email"
-          id="Email"
+          id="loginEmail"
           value={user.Email}
           onChange={handleChange}
         />
@@ -66,7 +67,7 @@ const {storeTokenInLS,token}= useAuth()
         <input
           type="password"
           name="Password"
-          id="Password"
+          id="loginPassword"
           value={user.Password}
           onChange={handleChange}
         />

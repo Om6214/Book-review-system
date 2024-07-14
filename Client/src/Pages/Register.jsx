@@ -47,13 +47,14 @@ const Register = () => {
   };
   return (
     <form autoComplete="off" onSubmit={handleSubmit}>
-      <div className="form" style={{width:"80vw"}}>
+      <h1 id="About">Register</h1>
+      <div className="loginform" style={{width:"80vw"}}>
         <label htmlFor="Name">Name : </label>
         <input
         style={{padding:"10px",border:"1px solid #696997",borderRadius:"4px"}}
           type="text"
           name="Name"
-          id="Name"
+          id="regisName"
           value={user.Name}
           onChange={handleChange}
         />
@@ -61,7 +62,7 @@ const Register = () => {
         <input
           type="email"
           name="Email"
-          id="Email"
+          id="regisEmail"
           value={user.Email}
           onChange={handleChange}
         />
@@ -69,7 +70,7 @@ const Register = () => {
         <input
           type="password"
           name="Password"
-          id="Password"
+          id="regisPassword"
           value={user.Password}
           onChange={handleChange}
         />

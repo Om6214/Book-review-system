@@ -90,6 +90,10 @@
     font-size: 12px;
     display: flex;
   }
+  #Rating{
+    position: relative;
+    left: 70px;
+  }
   #About {
     font-size: 18px;
   }

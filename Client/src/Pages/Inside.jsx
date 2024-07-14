@@ -143,6 +143,7 @@ const Inside = () => {
               name="half-rating-read"
               value={avgRating}
               precision={0.5}
+              id="Rating"
               readOnly
             />
           </p>

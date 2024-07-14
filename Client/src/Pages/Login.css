@@ -1,15 +1,29 @@
-.form{
+.loginform{
     margin: auto;
     display: flex;
-    width: 40%;
+    width: 80%;
     flex-direction: column;
-    justify-content: center;
 }
 .loginbutton{
+    position: relative;
+    top: 20px;
     margin: auto;
     width: 14%;
-    background-color: gray;
+    background-color: rgb(62, 35, 35);
+    color: white;
     border: none;
     height: 39px;
     border-radius: 10px;
+  }
+  #loginEmail{
+    padding: 10px;
+  }
+  #loginPassword{
+    padding: 10px;
+  }
+  #loginEmail:focus{
+    outline: none;
+  }
+  #loginPassword:focus{
+    outline: none;
   }
