@@ -1,0 +1,7 @@
+.loadingbar {
+  justify-content: center;
+  display: flex;
+  top: 50%;
+  position: absolute;
+  left: 48%;
+}

@@ -3,8 +3,12 @@ import React from "react";
 import "./Register.css"
 import BaseUrl from "../BaseUrl";
 import {toast} from "react-toastify"
+import { useAuth } from "../storage/auth";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate()
+  const {setLoading} = useAuth();
   const [user, setuser] = useState({
     Name: "",
     Email: "",
@@ -18,6 +22,7 @@ const Register = () => {
     });
   };
   const handleSubmit = async (e) => {
+    setLoading(true)
     e.preventDefault();
     try {
       const response = await fetch(`${BaseUrl}/user/registration`, {
@@ -38,11 +43,14 @@ const Register = () => {
           Email: "",
           Password: "",
         });
+        navigate("/login")
       } else {
         alert(data.message);
       }
     } catch (error) {
       console.log(error);
+    } finally{
+      setLoading(false)
     }
   };
   return (
