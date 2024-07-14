@@ -65,7 +65,7 @@ const About = () => {
     } catch (error) {
       console.log(error);
     } finally{
-      setLoading(true)
+      setLoading(false)
     }
   };
 
