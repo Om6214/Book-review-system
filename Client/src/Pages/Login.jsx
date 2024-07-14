@@ -4,6 +4,7 @@ import "./Login.css";
 import {useNavigate } from "react-router-dom";
 import BaseUrl from "../BaseUrl";
 import {toast} from "react-toastify"
+import ClipLoader from "react-spinners/ClipLoader";
 
 const Login = () => {
   const navigate = useNavigate()
@@ -19,10 +20,11 @@ const Login = () => {
       [name]: value,
     });
   };
-const {storeTokenInLS,token}= useAuth()
+const {storeTokenInLS,token,setLoading,loading}= useAuth()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
     try {
       const response = await fetch(`${BaseUrl}/user/login`, {
         method: "POST",
@@ -48,8 +50,11 @@ const {storeTokenInLS,token}= useAuth()
       }
     } catch (error) {
       console.log(error);
+    } finally{
+      setLoading(false)
     }
-  };
+  }
+  console.log(loading)
 
   return (
     <form autoComplete="off" onSubmit={handleSubmit}>
@@ -71,7 +76,9 @@ const {storeTokenInLS,token}= useAuth()
           value={user.Password}
           onChange={handleChange}
         />
-        <button className="loginbutton" type="submit">Submit</button>
+        <button className="loginbutton" type="submit">
+          {loading?<ClipLoader size={20} color={"#ffffff"}/>:"Submit"}
+        </button>
       </div>
     </form>
   );

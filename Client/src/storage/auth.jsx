@@ -5,6 +5,7 @@ const Authcontext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [admin, setadmin] = useState(false);
+  const [loading, setLoading] = useState(false)
   const [token, settoken] = useState(localStorage.getItem("Token"));
   const storeTokenInLS = (serverToken) => {
     settoken(serverToken);
@@ -82,6 +83,8 @@ export const AuthProvider = ({ children }) => {
         detail,
         isLoggedin,
         LogoutUser,
+        loading,
+        setLoading,
         book,
         Category,
         setCategory,
